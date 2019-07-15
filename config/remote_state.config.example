@@ -1,0 +1,3 @@
+REGION=us-east-1
+BUCKET=myorg1234-terraform-remote-state
+DYNAMODB_TABLE=myorg1234-terraform-remote-state
