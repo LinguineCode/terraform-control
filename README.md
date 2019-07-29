@@ -110,3 +110,11 @@ If you have an App Stack you want to add:
 
   1. [ ] Support for Terraform Cloud Remote State (waiting on https://github.com/gruntwork-io/terragrunt/issues/779)
   1. [ ] Examples for AWS Organizations/Multiple Accounts (see here https://github.com/gruntwork-io/terragrunt-infrastructure-live-example#how-is-the-code-in-this-repo-organized)
+
+## Contributing
+
+We welcome any and all contributions. Please create an Issue or a PR.
+
+## License
+
+See [LICENSE.md](LICENSE.md)
