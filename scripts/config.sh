@@ -8,7 +8,7 @@ syntax() {
 print_config() {
   cd "$(dirname "${BASH_SOURCE[0]}")" || exit
 
-  x="$(grep ^"$1" ./remote_state.config)"
+  x="$(grep ^"$1" ../config/remote_state.config)"
   if [ "$x" ]; then
   	echo "$x" | cut -d'=' -f2
   else
