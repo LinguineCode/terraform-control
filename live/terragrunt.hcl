@@ -14,8 +14,7 @@ remote_state {
 terraform {
   after_hook "init_from_module" {
     commands = ["init-from-module"]
-    #execute  = ["${path_relative_from_include()}/../scripts/after_hooks_init_from_module.sh"]
-    execute = ["ln", "-sf", "../../backend.tf", "."]
+    execute  = ["ln", "-sf", "../../backend.tf", "."]
   }
 
   extra_arguments "env_vars" {
