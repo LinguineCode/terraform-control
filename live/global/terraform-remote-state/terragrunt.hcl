@@ -3,6 +3,6 @@ terraform {
 }
 
 inputs = {
-  bucket         = chomp(run_cmd("../../../config/config.sh", "BUCKET"))
-  dynamodb_table = chomp(run_cmd("../../../config/config.sh", "DYNAMODB_TABLE"))
+  bucket         = chomp(run_cmd("../../../scripts/config.sh", "BUCKET"))
+  dynamodb_table = chomp(run_cmd("../../../scripts/config.sh", "DYNAMODB_TABLE"))
 }

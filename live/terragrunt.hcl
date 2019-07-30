@@ -3,15 +3,20 @@ remote_state {
   backend = "s3"
 
   config = {
-    bucket         = chomp(run_cmd("${path_relative_from_include()}/../config/config.sh", "BUCKET"))
-    region         = chomp(run_cmd("${path_relative_from_include()}/../config/config.sh", "REGION"))
-    dynamodb_table = chomp(run_cmd("${path_relative_from_include()}/../config/config.sh", "DYNAMODB_TABLE"))
+    bucket         = chomp(run_cmd("${path_relative_from_include()}/../scripts/config.sh", "BUCKET"))
+    region         = chomp(run_cmd("${path_relative_from_include()}/../scripts/config.sh", "REGION"))
+    dynamodb_table = chomp(run_cmd("${path_relative_from_include()}/../scripts/config.sh", "DYNAMODB_TABLE"))
     key            = "${path_relative_to_include()}/terraform.tfstate"
     encrypt        = true
   }
 }
 
 terraform {
+  after_hook "init_from_module" {
+    commands = ["init-from-module"]
+    execute  = ["ln", "-sf", "../../backend.tf", "."]
+  }
+
   extra_arguments "env_vars" {
     commands = [
       "init",
