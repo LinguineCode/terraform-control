@@ -14,7 +14,12 @@ remote_state {
 terraform {
   after_hook "init_from_module" {
     commands = ["init-from-module"]
-    execute  = ["ln", "-sf", "../../backend.tf", "."]
+    execute  = ["cp ${get_parent_terragrunt_dir()}/backend.tf", "${get_terragrunt_dir()/"}"
+  }
+
+  after_hook "delete_after_succesfull_apply" {
+    commands = ["apply"]
+    execut   = ["rm", "${get_terragrunt_dir}/backend.tf"]
   }
 
   extra_arguments "env_vars" {
