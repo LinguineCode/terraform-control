@@ -17,9 +17,9 @@ terraform {
     execute  = ["cp ${get_parent_terragrunt_dir()}/backend.tf", "${get_terragrunt_dir()/"}"
   }
 
-  after_hook "delete_after_succesfull_apply" {
+  after_hook "delete_after_succesful_apply" {
     commands = ["apply"]
-    execut   = ["rm", "${get_terragrunt_dir}/backend.tf"]
+    execute  = ["rm", "${get_terragrunt_dir}/backend.tf"]
   }
 
   extra_arguments "env_vars" {
